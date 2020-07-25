@@ -2,6 +2,8 @@
 
 ## Objectives
 
+- Build an amazing Sinatra Application :smile:
+
 ## Overview
 
 
