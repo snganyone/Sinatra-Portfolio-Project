@@ -3,6 +3,9 @@
 ## Objectives
 
 - Build an amazing Sinatra Application :smile:
+- Handle & Validate User Logins & Signups
+- Use ActiveRecord with Sinatra
+- Create ActiveRecord Associations
 
 ## Overview
 
