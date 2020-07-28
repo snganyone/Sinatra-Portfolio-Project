@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 98880727033237) do
     t.date    "release_date"
     t.string  "employer"
     t.string  "location"
-    t.string  "type"
+    t.string  "job_type"
     t.integer "user_id"
   end
 
