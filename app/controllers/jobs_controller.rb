@@ -14,6 +14,9 @@ class JobsController < ApplicationController
     end
 
     post '/jobs' do 
+        @jobs = Jobs.new(title: params["title"], description: params["desc"], release_date: params["date"], employer: params["employer"], location: params["location"], job_type: params["job_type"])
+        @jobs.save
+        redirect "/jobs/#{@jobs.id}"
     end
 
     #show action
