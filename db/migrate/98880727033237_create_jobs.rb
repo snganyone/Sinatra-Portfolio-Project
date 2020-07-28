@@ -7,6 +7,7 @@ class CreateJobs < ActiveRecord::Migration
       job.string :employer
       job.string :location
       job.string :type
+      job.integer :user_id
     end
   end
 end
