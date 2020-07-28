@@ -13,6 +13,9 @@ class JobsController < ApplicationController
         erb :'jobs/new'
     end
 
+    post '/jobs' do 
+    end
+
     #show action
 
     get '/jobs/:id' do 
