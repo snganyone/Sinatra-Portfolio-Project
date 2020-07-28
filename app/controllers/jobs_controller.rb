@@ -8,6 +8,11 @@ class JobsController < ApplicationController
 
     #create action
 
+    get '/jobs/new' do
+        @jobs = Jobs.all
+        erb :'jobs/new'
+    end
+
     #show action
 
     get '/jobs/:id' do 
