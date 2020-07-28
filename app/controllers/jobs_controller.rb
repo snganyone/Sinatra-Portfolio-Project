@@ -5,4 +5,11 @@ class JobsController < ApplicationController
         @jobs = Jobs.all 
         erb :'jobs/index'
     end
+
+    #show action
+
+    get 'jobs/:id' do 
+        @jobs = Jobs.find_by_id(params[:id])
+        erb :'jobs/show'
+    end
 end
