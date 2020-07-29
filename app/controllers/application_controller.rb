@@ -15,8 +15,9 @@ class ApplicationController < Sinatra::Base
     end
 
     #Helper Methods
-
-    def current_user
-        @user = User.first
+    helpers do 
+        def current_user
+            @user = User.first
+        end
     end
 end
