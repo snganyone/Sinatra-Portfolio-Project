@@ -33,6 +33,12 @@ class UsersController < ApplicationController
             redirect '/users/login'
         end
     end
+
+    #Delete User
+    delete '/users/:id' do 
+        @user = User.delete(params[:id])
+        redirect '/users'
+    end
     
     
 end
