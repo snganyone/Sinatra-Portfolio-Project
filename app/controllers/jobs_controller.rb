@@ -3,7 +3,7 @@ class JobsController < ApplicationController
     #Index Action
 
     get '/jobs' do
-        @jobs = Jobs.all 
+        @jobs = Jobs.all
         erb :'jobs/index'
     end
 
