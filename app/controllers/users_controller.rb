@@ -5,7 +5,7 @@ class UsersController < ApplicationController
         erb :'users/index'
     end
 
-    #User Signup
+    #User Signup / New Action
     get '/users/signup' do
         erb :'users/signup'
     end
@@ -15,10 +15,10 @@ class UsersController < ApplicationController
         @user.save
 
         session[:user_id] = @user.id
-        redirect '/'
+        redirect '/users'
     end
 
-    #User login
+    #User login / Create Action
 
     get '/users/login' do 
         erb :'users/login'
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
         @user = User.find_by(username: params["username"])
         if @user
             session[:user_id] = @user.id
-            redirect '/users/#{@user.id}'
+            redirect '/users/'
         else
             redirect '/users/login'
         end

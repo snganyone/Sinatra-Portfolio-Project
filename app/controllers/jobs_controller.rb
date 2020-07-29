@@ -1,17 +1,20 @@
 class JobsController < ApplicationController
 
-    #index action
+    #Index Action
+
     get '/jobs' do
         @jobs = Jobs.all 
         erb :'jobs/index'
     end
 
-    #create action
+    #New Action
 
     get '/jobs/new' do
         @jobs = Jobs.all
         erb :'jobs/new'
     end
+
+    #Create Action
 
     post '/jobs' do 
         @jobs = Jobs.new(title: params["title"], description: params["desc"], release_date: params["date"], employer: params["employer"], location: params["location"], job_type: params["job_type"])
