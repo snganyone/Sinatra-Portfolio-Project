@@ -1,12 +1,14 @@
-<div class="jumbotron">
-<ul>
 <% @jobs.each do |job| %>
-    <li>Job Title: <%= job.title %></li>
-    <li>Job Description: <%= job.description %></li>
-    <li>Job Posting Date: <%= job.release_date %></li>
-    <li>Employer: <%= job.employer %></li>
-    <li>Location: <%= job.location %></li>
-    <li>Schedule: <%= job.job_type %></li>
+    <div class="text-center card" style="width: 18rem;">
+        <div class="card body">
+        <h5 class="card-title">Job Title: <%= job.title %></h5>
+        <h6 class="card-text">Job Description: <%= job.description %></h6>
+        <ul>
+        <li>Job Posting Date: <%= job.release_date %></li>
+        <li>Employer: <%= job.employer %></li>
+        <li>Location: <%= job.location %></li>
+        <li>Schedule: <%= job.job_type %></li>
+        </ul>
+        </div>
+    </div>
 <% end %>
-</ul>
-</div>
