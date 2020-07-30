@@ -1,1 +1,19 @@
 <h3>Edit Existing Job Posting</h3>
+
+<form method="POST" action="/jobs/<%= @jobs.id%>">
+    <input id="hidden" type="hidden" name="_method" value="PATCH">
+    <label>Job Title: </label>
+    <input type="text" id="title" name="title" value="<%= @jobs.title%>">
+    <label>Job Description: </label>
+    <input type="text" id="desc" name="desc" value="<%= @jobs.description%>">
+    <label>Job Release Date: </label>
+    <input type="date" id="date" name="date" value="<%= @jobs.release_date%>">
+    <label>Employer Name: </label>
+    <input type="text" id="employer" name="employer" value="<%= @jobs.employer%>">
+    <label>Job Location: </label>
+    <input type="text" id="location" name="location" value="<%= @jobs.location%>">
+    <label>Job Type: </label>
+    <input type="text" id="job_type" name="job_type" value="<%= @jobs.job_type%>">
+
+    <input type="submit" name="submit" value="submit">
+</form>

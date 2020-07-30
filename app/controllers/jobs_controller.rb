@@ -33,7 +33,7 @@ class JobsController < ApplicationController
     #Edit Action
 
     get '/jobs/:id/edit' do 
-        #@jobs = Job.find_by_id(params[:id])
+        @jobs = Job.find_by_id(params[:id])
         erb :'jobs/edit'
     end
 
