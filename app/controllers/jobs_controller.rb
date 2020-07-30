@@ -10,7 +10,6 @@ class JobsController < ApplicationController
     #New Action
 
     get '/jobs/new' do
-        @jobs = Jobs.all
         erb :'jobs/new'
     end
 
