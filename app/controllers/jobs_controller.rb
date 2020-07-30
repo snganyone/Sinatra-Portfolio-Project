@@ -44,7 +44,7 @@ class JobsController < ApplicationController
     end
 
     #Delete Action
-    get '/jobs/:id' do 
+    delete '/jobs/:id' do 
         @jobs = Job.find_by_id(params[:id])
         @jobs.destroy
         redirect "/jobs"
