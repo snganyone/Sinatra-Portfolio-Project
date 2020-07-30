@@ -22,11 +22,25 @@ class JobsController < ApplicationController
         redirect "/jobs/#{@jobs.id}"
     end
 
-    #show action
+    #Show action
 
     get '/jobs/:id' do 
         @jobs = Jobs.find_by_id(params[:id])
         erb :'jobs/show'
+    end
+
+    #Edit Action
+
+    get '/jobs/:id/edit' do 
+        @jobs = Jobs.find_by_id(params[:id])
+        erb :'jobs/edit'
+    end
+
+    #Delete Action
+    get '/jobs/:id' do 
+        @jobs = Jobs.find_by_id(params[:id])
+        @jobs.destroy
+        redirect "/jobs/#{@jobs.id}"
     end
 
 end
