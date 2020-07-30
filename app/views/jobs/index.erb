@@ -1,9 +1,7 @@
 <h3>Current Job Postings</h3>
 
-<a href=""class="btn btn-success">Add a new Job Posting</a>
-<a class="btn btn-primary">Update a new Job Posting</a>
-<a class="btn btn-danger">Delete a new Job Posting</a>
-
+<a href="/jobs/new" class="btn btn-success">Add a new Job Posting</a>
+<a href="/jobs/edit"class="btn btn-primary">Update a new Job Posting</a>
 
 <% @jobs.each do |job| %>
     <div class="text-center card" style="width: 18rem;">
