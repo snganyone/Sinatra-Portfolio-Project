@@ -9,6 +9,13 @@
 <li><%= @jobs.job_type %></li>
 </ul>
 
+#Add new Job Link
 <a href="/jobs/new" class="btn btn-success">Add a new Job Posting</a>
+#Edit Existing Job Link
 <a href="/jobs/<%= @jobs.id %>/edit"class="btn btn-primary">Update Existing Job Posting</a>
-<a class="btn btn-danger">Delete a new Job Posting</a>
+
+#Delete Action Form
+<form method="POST" action="/jobs/<%= @jobs.id%>">
+    <input type="hidden" id="hidden" name="_method" value="delete">
+    <input type="submit" value="delete">
+</form>
