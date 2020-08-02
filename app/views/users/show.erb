@@ -1,9 +1,14 @@
 <div class="jumbotron">
-
+<% if current_user %>
 <h3 class="display-4">Your Relier Account</h3>
-<p>Sucess You Logged into your Account</p>
+<p>Success You Logged into your Account</p>
 
-    <a href="/jobs" class="btn btn-primary">Available Jobs</a>
-    <a href="/users" class="btn btn-danger">Delete account</a>
+<h6>Welcome, <%= current_user.username %>. Thanks for Visiting!</h6>
 
+    Please select <a href="/jobs" class="btn btn-primary">Available Jobs</a> to view our available job postings
+    <br><br><br>
+    Please select <a href="/users" class="btn btn-danger">Delete account</a> If you want to delete your account
+<% else %>    
+    You must <a href="/users/login">Log In</a> To view your Account
+<% end %>
 </div>
