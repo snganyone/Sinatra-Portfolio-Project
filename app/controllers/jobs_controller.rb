@@ -11,7 +11,12 @@ class JobsController < ApplicationController
     #New Action
 
     get '/jobs/new' do
-        erb :'jobs/new'
+        if logged_in?
+            erb :'jobs/new'
+            #binding.pry
+        else
+            redirect '/users/login'
+        end
     end
 
     #Create Action
@@ -19,8 +24,11 @@ class JobsController < ApplicationController
     post '/jobs' do 
         @jobs = Job.new(title: params["title"], description: params["desc"], release_date: params["date"], employer: params["employer"], location: params["location"], job_type: params["job_type"])
         #jobs = current_user.jobs.build(params)        
-        @jobs.save
-        redirect "/jobs/#{@jobs.id}"
+        if @jobs.save
+            redirect "/jobs/#{@jobs.id}"
+        else
+            redirect "/users/new"
+        end
     end
 
     #Show action
@@ -48,6 +56,12 @@ class JobsController < ApplicationController
         @jobs = Job.find_by_id(params[:id])
         @jobs.destroy
         redirect "/jobs"
+    end
+
+    private
+
+    def set_post
+        @job = current.user.jobs.find_by_id(params[:id])
     end
 
 end

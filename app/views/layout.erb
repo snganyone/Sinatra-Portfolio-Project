@@ -6,7 +6,7 @@
     </head>
     <body>
 
-    <% if current_user %>
+    <% if logged_in? %>
         <form method="POST" action="/logout">
         <input type="hidden" name="_method" value="DELETE">
         <input type="submit" value="logout">
