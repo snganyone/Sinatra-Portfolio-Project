@@ -1,4 +1,4 @@
-<h2>Available Job Postings</h2>
+<h2>Your Job Posting</h2>
 
 <ul>
 <li><%= @jobs.title %></li>
@@ -13,6 +13,10 @@
 <a href="/jobs/new" class="btn btn-success">Add a new Job Posting</a>
 
 <a href="/jobs/<%= @jobs.id %>/edit"class="btn btn-primary">Update Existing Job Posting</a>
+<br><br><br>
+
+<a href='/jobs' class="btn btn-primary">Return to Job Listings</a>
+
 <br><br><br>
 
 <form method="POST" action="/jobs/<%= @jobs.id%>">
