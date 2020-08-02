@@ -34,7 +34,8 @@ class JobsController < ApplicationController
     #Show action
 
     get '/jobs/:id' do 
-        @jobs = Job.find_by_id(params[:id])
+        set_post
+        #@jobs = Job.find_by_id(params[:id])
         erb :'jobs/show'
     end
 
@@ -61,7 +62,7 @@ class JobsController < ApplicationController
     private
 
     def set_post
-        @job = current.user.jobs.find_by_id(params[:id])
+        @jobs = Job.find_by_id(params[:id])
     end
 
 end
