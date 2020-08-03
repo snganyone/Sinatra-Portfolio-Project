@@ -24,7 +24,6 @@ class JobsController < ApplicationController
     get '/jobs/new' do
         if logged_in?
             erb :'jobs/new'
-            #binding.pry
         else
             redirect '/users/login'
         end
@@ -34,10 +33,8 @@ class JobsController < ApplicationController
 
     post '/jobs' do 
         #@jobs = Job.new(title: params["title"], description: params["desc"], release_date: params["date"], employer: params["employer"], location: params["location"], job_type: params["job_type"])
-        #@jobs.user = current_user
-        #binding.pry
         @job_postings = current_user.jobs.build(params)        
-        #job_postings.save
+        
         if @job_postings.save
             redirect "/jobs/#{@job_postings.id}"
         else
