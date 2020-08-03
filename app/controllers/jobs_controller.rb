@@ -3,9 +3,16 @@ class JobsController < ApplicationController
     #Index Action
 
     get '/jobs' do
-        #@jobs = current_user.jobs
+        @user_jobs = current_user.jobs
         @jobs = Job.all
         erb :'jobs/index'
+    end
+
+    #Jobs related to a Specific User
+
+    get '/jobs/users' do 
+        @user_jobs = current_user.jobs
+        erb :'jobs/users'
     end
 
     #New Action
@@ -34,8 +41,8 @@ class JobsController < ApplicationController
     #Show action
 
     get '/jobs/:id' do 
-        set_post
-        #@jobs = Job.find_by_id(params[:id])
+        #set_post
+        @jobs = Job.find_by_id(params[:id])
         erb :'jobs/show'
     end
 

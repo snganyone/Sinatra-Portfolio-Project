@@ -1,6 +1,4 @@
-<h3>Current Job Postings</h3>
-
-<a href="/jobs/users" class="btn btn-success">My Job Postings</a>
+<h5>Your Job Postings</h5>
 
 <!-- Add a new Job Posting -->
 
@@ -9,7 +7,7 @@
 
 <!-- All Exising Job Posting -->
 
-<% @jobs.each do |job| %>
+<% @user_jobs.each do |job| %>
     <div class="text-center card" style="width: 18rem;">
         <div class="card body">
         <h5 class="card-title">Job Title: <%= job.title %></h5>
