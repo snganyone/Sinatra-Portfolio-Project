@@ -15,5 +15,9 @@
         </ul>
         </div>
         <a href="/jobs/<%= job.id%>/edit" class="btn btn-primary">Edit Job Posting</a>
+        <form method="POST" action="/jobs/<%= job.id%>">
+        <input type="hidden" id="hidden" name="_method" value="delete">
+        <input class="btn btn-danger"type="submit" value="delete">
+    </form>
     </div>
 <% end %>
