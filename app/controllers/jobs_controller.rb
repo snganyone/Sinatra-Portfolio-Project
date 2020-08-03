@@ -4,8 +4,10 @@ class JobsController < ApplicationController
 
     get '/jobs' do
         #@user_jobs = current_user.jobs
-        @jobs = Job.all
-        erb :'jobs/index'
+        if logged_in?
+            @jobs = Job.all
+            erb :'jobs/index'
+        end
     end
 
     #Jobs related to a Specific User
