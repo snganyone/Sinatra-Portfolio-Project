@@ -10,10 +10,13 @@ class JobsController < ApplicationController
 
     #Jobs related to a Specific User
 
-    get '/jobs/users' do 
-        @user_jobs = current_user.jobs
+    get '/jobs/:id/users' do 
+        if logged_in?
+            @user_jobs = current_user.jobs
+            #binding.pry
+            erb :'jobs/users'
+        end
         #session[:user_id] = @user_jobs.id
-        erb :'jobs/users'
     end
 
     #New Action
@@ -30,12 +33,13 @@ class JobsController < ApplicationController
     #Create Action
 
     post '/jobs' do 
-        @jobs = Job.new(title: params["title"], description: params["desc"], release_date: params["date"], employer: params["employer"], location: params["location"], job_type: params["job_type"])
+        #@jobs = Job.new(title: params["title"], description: params["desc"], release_date: params["date"], employer: params["employer"], location: params["location"], job_type: params["job_type"])
         #@jobs.user = current_user
-        #@jobs = current_user.jobs.build(params)        
-
-        if @jobs.save
-            redirect "/jobs/#{@jobs.id}"
+        #binding.pry
+        @job_postings = current_user.jobs.build(params)        
+        #job_postings.save
+        if @job_postings.save
+            redirect "/jobs/#{@job_postings.id}"
         else
             redirect "/users/new"
         end
