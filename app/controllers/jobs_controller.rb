@@ -7,6 +7,8 @@ class JobsController < ApplicationController
         if logged_in?
             @jobs = Job.all
             erb :'jobs/index'
+        else
+            redirect '/users/login'
         end
     end
 
