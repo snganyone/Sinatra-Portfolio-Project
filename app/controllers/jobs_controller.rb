@@ -20,7 +20,6 @@ class JobsController < ApplicationController
             #binding.pry
             erb :'jobs/users'
         end
-        #session[:user_id] = @user_jobs.id
     end
 
     #New Action
