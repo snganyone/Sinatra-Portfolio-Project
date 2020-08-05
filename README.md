@@ -8,6 +8,7 @@
 - Create ActiveRecord Associations
 
 ## Overview
+- This project is an online Job Board
 
 
 ## Contributors Guide
