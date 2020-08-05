@@ -9,6 +9,8 @@
 
 ## Overview
 - This project is an online Job Board
+- Users can setup an account and post jobs for prospective job seekers
+- Intended for employers to post their jobs online
 
 
 ## Contributors Guide
