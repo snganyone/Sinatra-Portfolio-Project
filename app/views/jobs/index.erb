@@ -21,12 +21,6 @@
         <li>Schedule: <%= job.job_type %></li>
         </ul>
         </div>
-        <!-- Edit an Exising Job Posting -->
-        <a href="/jobs/<%= job.id%>/edit" class="btn btn-primary">Edit Job Posting</a>
-        <!-- Delete an Existing Job Posting -->
-        <form method="POST" action="/jobs/<%= job.id%>">
-        <input type="hidden" id="hidden" name="_method" value="delete">
-        <input class="btn btn-danger"type="submit" value="delete">
     </form>
     </div>
     <br><br>
