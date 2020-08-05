@@ -1,12 +1,24 @@
 <h3>Thanks for Logging In</h3>
 
 <form method="POST" action="/login">
-    <label>Username: </label>
-    <input type="text" id="username" name="username">
-    <label>E-mail Address: </label>
-    <input type="text" id="email" name="email">
-    <label>Password: </label>
-    <input type="password" id="password" name="password">
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Username: </label>
+        <div>
+            <input type="text" class="form-control" id="username" name="username">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">E-mail: </label>
+        <div>
+            <input type="text" class="form-control" id="email" name="email">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Password: </label>
+        <div>
+        <input type="password" class="form-control" id="password" name="password">
+        </div>
+    </div>
 
-    <input type="submit" id="log in" name="log in">
+    <input type="submit" class="btn btn-primary" id="log in" name="log in">
 </form>
