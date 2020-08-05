@@ -5,16 +5,20 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     </head>
     <body>
-
-    <% if logged_in? %>
-        <form method="POST" action="/logout">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" class="btn btn-danger" value="logout">
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <% if logged_in? %>
+            <form method="POST" action="/logout">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" class="btn btn-danger" value="logout">
+            </form>
+        <% else %>
+        <form>
+            <a href="/users/login" class="btn btn-primary">Log In</a>
+            <a href="/users/signup" class="btn btn-success">Sign Up</a>
         </form>
-    <% else %>
-        <a href="/users/login" class="btn btn-primary">Log In</a>
-        <a href="/users/signup" class="btn btn-success">Sign Up</a>
-    <% end %>
+        <% end %>
+    </nav>
+    <br><br>
 
     <%= yield %>
 
