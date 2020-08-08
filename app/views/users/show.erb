@@ -7,7 +7,7 @@
 
     Please select <a href="/jobs" class="btn btn-primary">Available Jobs</a> to view our available job postings
     <br><br><br>
-    Please select <a href="/users" class="btn btn-danger">Delete account</a> If you want to delete your account
+    Select the Delete button below if you would like to delete your account (Sorry to see you go)
     <form method="POST" action="/users/<%= @user.id %>">
     <input type="hidden" id="hidden" name="_method" value="delete">
     <input class="btn btn-danger" type="submit" value="delete">
