@@ -49,7 +49,7 @@ class UsersController < ApplicationController
     #Delete User
     delete '/users/:id' do 
         @user = User.delete(params[:id])
-        redirect '/users'
+        redirect '/'
     end
     
     #Logout User
