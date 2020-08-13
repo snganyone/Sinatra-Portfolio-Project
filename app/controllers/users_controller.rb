@@ -40,16 +40,23 @@ class UsersController < ApplicationController
         end
     end
 
+    #Show action
     get '/users/:id' do 
-        @user = User.find_by(id: params[:id])
-        erb :'users/show'
+        if logged_in? && set_user
+            @user = User.find_by(id: params[:id])
+            erb :'users/show'
+        else
+            redirect '/'
+        end
     end
 
 
     #Delete User
     delete '/users/:id' do 
-        @user = User.delete(params[:id])
-        redirect '/'
+        if set_user
+            @user = User.delete(params[:id])
+            redirect '/'
+        end
     end
     
     #Logout User

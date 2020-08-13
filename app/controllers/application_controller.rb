@@ -24,4 +24,10 @@ class ApplicationController < Sinatra::Base
             !!current_user
         end
     end
+
+    private
+
+    def set_user
+        @current_admin = current_user.jobs.find_by_id(params[:id])
+    end
 end

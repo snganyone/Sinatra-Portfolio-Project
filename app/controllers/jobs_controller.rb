@@ -56,8 +56,12 @@ class JobsController < ApplicationController
     #Edit Action
 
     get '/jobs/:id/edit' do 
-        @jobs = Job.find_by_id(params[:id])
-        erb :'jobs/edit'
+        if logged_in? && set_user
+            @jobs = Job.find_by_id(params[:id])
+            erb :'jobs/edit'
+        else
+            redirect '/'
+        end
     end
 
     patch '/jobs/:id' do 
@@ -75,8 +79,8 @@ class JobsController < ApplicationController
 
     private
 
-    def set_post
-        @jobs = Job.find_by_id(params[:id])
+    def set_user
+        @current_admin = current_user.jobs.find_by_id(params[:id])
     end
 
 end
