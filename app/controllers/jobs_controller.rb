@@ -15,10 +15,12 @@ class JobsController < ApplicationController
     #Jobs related to a Specific User
 
     get '/jobs/:id/users' do 
-        if logged_in?
+        if logged_in? && set_user
             @user_jobs = current_user.jobs
             #binding.pry
             erb :'jobs/users'
+        else
+            redirect '/'
         end
     end
 
@@ -49,8 +51,12 @@ class JobsController < ApplicationController
 
     get '/jobs/:id' do 
         #set_post
-        @jobs = Job.find_by_id(params[:id])
-        erb :'jobs/show'
+        if logged_in? && set_user
+            @jobs = Job.find_by_id(params[:id])
+            erb :'jobs/show'
+        else
+            redirect '/'
+        end
     end
 
     #Edit Action

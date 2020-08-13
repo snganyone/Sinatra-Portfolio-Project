@@ -53,16 +53,20 @@ class UsersController < ApplicationController
 
     #Delete User
     delete '/users/:id' do 
-        if set_user
-            @user = User.delete(params[:id])
-            redirect '/'
-        end
+        @user = User.delete(params[:id])
+        redirect '/'
     end
     
     #Logout User
     delete '/logout' do 
         session.clear
         redirect '/'
+    end
+
+    private
+
+    def set_user
+        @current_admin = current_user.jobs.find_by_id(params[:id])
     end
     
 end
