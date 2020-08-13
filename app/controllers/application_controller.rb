@@ -25,10 +25,8 @@ class ApplicationController < Sinatra::Base
         end
     end
 
-    private
-
-    def set_user
-        @current_admin = current_user.jobs.find_by_id(params[:id])
+    def redirect_if_not_logged_in
+        redirect '/' unless logged_in?
     end
-    
+
 end

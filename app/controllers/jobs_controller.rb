@@ -3,35 +3,26 @@ class JobsController < ApplicationController
     #Index Action
 
     get '/jobs' do
-        #@user_jobs = current_user.jobs
-        if logged_in?
-            @jobs = Job.all
-            erb :'jobs/index'
-        else
-            redirect '/users/login'
-        end
+        redirect_if_not_logged_in
+
+        @jobs = Job.all
+        erb :'jobs/index'
     end
 
     #Jobs related to a Specific User
 
     get '/jobs/:id/users' do 
-        if logged_in? && set_user
-            @user_jobs = current_user.jobs
-            #binding.pry
-            erb :'jobs/users'
-        else
-            redirect '/'
-        end
+        redirect_if_not_logged_in
+
+        @user_jobs = current_user.jobs
+        erb :'jobs/users'
     end
 
     #New Action
 
     get '/jobs/new' do
-        if logged_in?
-            erb :'jobs/new'
-        else
-            redirect '/users/login'
-        end
+        redirect_if_not_logged_in
+        erb :'jobs/new'
     end
 
     #Create Action
