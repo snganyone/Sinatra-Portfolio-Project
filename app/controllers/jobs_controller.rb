@@ -30,12 +30,14 @@ class JobsController < ApplicationController
 
     post '/jobs' do 
         #@jobs = Job.new(title: params["title"], description: params["desc"], release_date: params["date"], employer: params["employer"], location: params["location"], job_type: params["job_type"])
-        @job_postings = current_user.jobs.build(params)        
-        
-        if @job_postings.save
+        @job_postings = current_user.jobs.build(params)
+
+        if Job.valid?(params)
+            binding.pry
+            @job_postings.save
             redirect "/jobs/#{@job_postings.id}"
         else
-            redirect "/users/new"
+            redirect "/jobs/new"
         end
     end
 
