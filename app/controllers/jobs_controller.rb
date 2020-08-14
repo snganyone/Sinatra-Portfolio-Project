@@ -13,9 +13,10 @@ class JobsController < ApplicationController
 
     get '/jobs/:id/users' do 
         redirect_if_not_logged_in
-
+        #@current_job = Job.find_by_id(params[:id])
         @user_jobs = current_user.jobs
         erb :'jobs/users'
+
     end
 
     #New Action
@@ -46,7 +47,7 @@ class JobsController < ApplicationController
             @jobs = Job.find_by_id(params[:id])
             erb :'jobs/show'
         else
-            redirect '/'
+            redirect '/jobs'
         end
     end
 
@@ -57,7 +58,8 @@ class JobsController < ApplicationController
             @jobs = Job.find_by_id(params[:id])
             erb :'jobs/edit'
         else
-            redirect '/'
+            redirect '/jobs'
+            #binding.pry
         end
     end
 
@@ -77,7 +79,14 @@ class JobsController < ApplicationController
     private
 
     def set_user
-        @current_admin = current_user.jobs.find_by_id(params[:id])
+        #binding.pry
+        @current_job = current_user.jobs.find_by_id(params[:id])
+        #if current_user.id == session[:user_id]
+         #   return true
+        #else false
+         #   current_user.id = session[:user_id]
+        #end
+
     end
 
 end
