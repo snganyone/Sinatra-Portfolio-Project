@@ -23,6 +23,16 @@ class ApplicationController < Sinatra::Base
         def logged_in?
             !!current_user
         end
+
+        def correct_user?(user)
+            user == current_user
+        end
+
+        def correct_user
+            if params[:id] == session[:user_id]
+                current_user || User.find_by(id: user_id)
+            end
+        end
     end
 
     def redirect_if_not_logged_in

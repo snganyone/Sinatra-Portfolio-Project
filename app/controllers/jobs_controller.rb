@@ -45,7 +45,7 @@ class JobsController < ApplicationController
 
     get '/jobs/:id' do 
         #set_post
-        if logged_in? && set_user
+        if logged_in? && correct_user
             @jobs = Job.find_by_id(params[:id])
             erb :'jobs/show'
         else
@@ -56,7 +56,7 @@ class JobsController < ApplicationController
     #Edit Action
 
     get '/jobs/:id/edit' do 
-        if logged_in? && set_user
+        if logged_in? && correct_user
             @jobs = Job.find_by_id(params[:id])
             erb :'jobs/edit'
         else
@@ -81,14 +81,9 @@ class JobsController < ApplicationController
     private
 
     def set_user
-        #binding.pry
-        @current_job = current_user.jobs.find_by_id(params[:id])
-        #if current_user.id == session[:user_id]
-         #   return true
-        #else false
-         #   current_user.id = session[:user_id]
-        #end
-
+        @u = User.find_by(params[:id])
+        #@current_job = current_user.jobs.find_by_id(session[:id])
+        current_user == @u
     end
 
 end
