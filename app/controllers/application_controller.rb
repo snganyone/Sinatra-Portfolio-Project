@@ -24,15 +24,12 @@ class ApplicationController < Sinatra::Base
             !!current_user
         end
 
-        def correct_user?(user)
-            user == current_user
-        end
-
         def correct_user
             if params[:id] == session[:user_id]
                 @correct_user ||= User.find_by(session[:id]) if session[:id]
             end
-        end
+        end        
+
     end
 
     def redirect_if_not_logged_in
